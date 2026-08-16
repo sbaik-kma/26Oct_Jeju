@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>제주도 가족여행 · 6박 7일</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EE;
+    --ink:#211D17;
+    --navy:#1B3A4B;
+    --orange:#E2711D;
+    --grey:#6B665C;
+    --mint:#7FAD9A;
+    --line: rgba(33,29,23,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif;
+    line-height:1.5;
+    padding-bottom:80px;
+  }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
+
+  /* HERO */
+  .hero{
+    padding:64px 0 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.12em;
+    color:var(--orange);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Noto Serif KR', serif;
+    font-weight:900;
+    font-size:clamp(36px, 6vw, 56px);
+    color:var(--ink);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  .hero-meta{
+    margin-top:20px;
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    font-size:15px;
+    color:var(--grey);
+  }
+  .hero-meta b{
+    color:var(--ink);
+    font-weight:700;
+  }
+
+  /* SECTION LABEL */
+  .section{ padding:48px 0; border-bottom:1px solid var(--line); }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--orange);
+    font-size:14px;
+  }
+  .section-title{
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;
+    font-size:26px;
+  }
+
+  /* FLIGHTS - boarding pass style */
+  .pass-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .pass{
+    background:var(--navy);
+    color:var(--cream);
+    border-radius:14px;
+    padding:24px 22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .pass::after{
+    content:"";
+    position:absolute;
+    right:-14px; top:50%;
+    width:28px; height:28px;
+    background:var(--cream);
+    border-radius:50%;
+    transform:translateY(-50%);
+  }
+  .pass::before{
+    content:"";
+    position:absolute;
+    left:-14px; top:50%;
+    width:28px; height:28px;
+    background:var(--cream);
+    border-radius:50%;
+    transform:translateY(-50%);
+  }
+  .pass-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:rgba(250,246,238,0.6);
+    letter-spacing:0.08em;
+    margin-bottom:18px;
+  }
+  .pass-route{
+    display:flex; align-items:center; gap:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:32px;
+    margin-bottom:8px;
+  }
+  .pass-route span.arrow{ color:var(--orange); font-size:20px; }
+  .pass-time{ font-size:20px; font-weight:700; margin-bottom:4px; }
+  .pass-sub{ font-size:13px; color:rgba(250,246,238,0.65); }
+  .pass-dashline{
+    border-top:1px dashed rgba(250,246,238,0.3);
+    margin:18px 0 14px;
+  }
+  .pass-foot{
+    display:flex; justify-content:space-between;
+    font-size:13px;
+    color:rgba(250,246,238,0.75);
+  }
+  .price-note{
+    margin-top:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--grey);
+    display:flex; justify-content:space-between;
+    align-items:center;
+  }
+  .price-note b{ color:var(--ink); font-size:16px; }
+
+  /* ACCOMMODATION TIMELINE */
+  .stay-list{ display:flex; flex-direction:column; }
+  .stay{
+    display:grid;
+    grid-template-columns:100px 96px 1fr;
+    gap:20px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    align-items:center;
+  }
+  .stay:first-child{ border-top:none; padding-top:0; }
+  .stay-night{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--orange);
+    font-weight:600;
+  }
+  .stay-thumb{
+    width:96px; height:96px;
+    border-radius:12px;
+    flex-shrink:0;
+    overflow:hidden;
+  }
+  .stay-thumb img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .stay-body h3{
+    font-family:'Noto Serif KR', serif;
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .stay-date{ font-size:13px; color:var(--grey); margin-bottom:8px; }
+  .stay-link{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--navy);
+    text-decoration:none;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:1px;
+  }
+  .stay-link:hover{ color:var(--orange); border-color:var(--orange); }
+
+  /* MAP SIGNATURE */
+  .map-box{
+    margin-top:32px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:24px;
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .map-svg{ flex:0 0 260px; }
+  .map-legend{ flex:1; min-width:180px; display:flex; flex-direction:column; gap:10px; }
+  .legend-item{ display:flex; align-items:center; gap:10px; font-size:13px; }
+  .dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+
+  /* RENTAL CAR */
+  .car-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px 26px;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .car-left{ display:flex; align-items:center; gap:18px; }
+  .car-icon{
+    width:52px; height:52px;
+    background:var(--orange);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:700;
+    font-size:13px;
+  }
+  .car-model{ font-family:'Noto Serif KR', serif; font-weight:700; font-size:20px; }
+  .car-sub{ font-size:13px; color:var(--grey); margin-top:2px; }
+  .car-period{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    text-align:right;
+    color:var(--ink);
+  }
+  .car-period .label{ display:block; font-size:11px; color:var(--grey); letter-spacing:0.06em; margin-bottom:4px; }
+
+  .note{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--grey);
+  }
+
+  @media (max-width:640px){
+    .pass-row{ grid-template-columns:1fr; }
+    .stay{ grid-template-columns:56px 64px 1fr; gap:14px; }
+    .stay-thumb{ width:64px; height:64px; border-radius:10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Family Trip &nbsp;·&nbsp; JEJU ISLAND</div>
+    <h1>제주도 가족여행</h1>
+    <div class="hero-meta">
+      <div><b>기간</b> &nbsp;2026.10.28(수) – 11.3(화) · 6박 7일</div>
+      <div><b>구간</b> &nbsp;서울특별시 ⇄ 제주시</div>
+    </div>
+  </div>
+
+  <!-- 항공편 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">항공편</span>
+    </div>
+
+    <div class="pass-row">
+      <div class="pass">
+        <div class="pass-top"><span>제주항공 · 직항</span><span>가는 편</span></div>
+        <div class="pass-route">GMP <span class="arrow">→</span> CJU</div>
+        <div class="pass-time">15:40 – 16:55</div>
+        <div class="pass-sub">10월 28일 (수) · 소요 1시간 15분</div>
+      </div>
+
+      <div class="pass">
+        <div class="pass-top"><span>제주항공 · 직항</span><span>오는 편</span></div>
+        <div class="pass-route">CJU <span class="arrow">→</span> GMP</div>
+        <div class="pass-time">16:20 – 17:35</div>
+        <div class="pass-sub">11월 3일 (화) · 소요 1시간 15분</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 숙소 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <span class="section-title">숙소</span>
+    </div>
+
+    <div class="stay-list">
+      <div class="stay">
+        <div class="stay-night">1박</div>
+        <div class="stay-thumb"><img src="images/ihotewoo.jpg" alt="제주 신라스테이 플러스 이호테우"></div>
+        <div class="stay-body">
+          <h3>제주 신라스테이 플러스 이호테우</h3>
+          <div class="stay-date">10월 28일 (수)</div>
+          <a class="stay-link" href="https://map.naver.com/p/search/%EC%8B%A0%EB%9D%BC%EC%8A%A4%ED%85%8C%EC%9D%B4%20%ED%94%8C%EB%9F%AC%EC%8A%A4%20%EC%9D%B4%ED%98%B8%ED%85%8C%EC%9A%B0" target="_blank" rel="noopener">네이버맵에서 보기 ↗</a>
+        </div>
+      </div>
+      <div class="stay">
+        <div class="stay-night">2–4박</div>
+        <div class="stay-thumb"><img src="images/phoenix-island.jpg" alt="휘닉스 아일랜드"></div>
+        <div class="stay-body">
+          <h3>휘닉스 아일랜드</h3>
+          <div class="stay-date">10월 29일 (목) – 10월 31일 (토) · 3박</div>
+          <a class="stay-link" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%20%ED%9C%98%EB%8B%89%EC%8A%A4%EC%95%84%EC%9D%BC%EB%9E%9C%EB%93%9C" target="_blank" rel="noopener">네이버맵에서 보기 ↗</a>
+        </div>
+      </div>
+      <div class="stay">
+        <div class="stay-night">5–6박</div>
+        <div class="stay-thumb"><img src="images/amber-purehill.jpg" alt="엠버 퓨어힐"></div>
+        <div class="stay-body">
+          <h3>엠버 퓨어힐</h3>
+          <div class="stay-date">11월 1일 (일) – 11월 2일 (월) · 2박</div>
+          <a class="stay-link" href="https://map.naver.com/p/search/%EC%97%A0%EB%B2%84%20%ED%93%A8%EC%96%B4%ED%9E%90" target="_blank" rel="noopener">네이버맵에서 보기 ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="note">※ 사진은 업로드해주신 각 숙소 이미지입니다.</div>
+
+    <div class="map-box">
+      <svg class="map-svg" viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- 바다 -->
+        <rect x="0" y="0" width="280" height="160" fill="#EEF3F1"/>
+        <!-- 제주도 본섬 해안선 (개략화) -->
+        <path d="M18,88
+                 C14,70 30,52 52,44
+                 C70,37 78,22 100,20
+                 C124,18 132,30 150,26
+                 C172,21 190,28 208,40
+                 C226,50 248,54 258,74
+                 C266,90 254,104 236,110
+                 C224,114 220,126 200,130
+                 C178,135 160,124 140,128
+                 C118,133 100,140 78,132
+                 C58,125 48,116 34,108
+                 C22,102 20,98 18,88 Z"
+              fill="#F1EBDD" stroke="#D8CFB8" stroke-width="1.2"/>
+        <!-- 한라산 (중앙 고지) -->
+        <ellipse cx="138" cy="72" rx="30" ry="22" fill="#DCD2B6" opacity="0.75"/>
+        <ellipse cx="138" cy="72" rx="14" ry="10" fill="#C9BC96" opacity="0.8"/>
+        <circle cx="138" cy="72" r="3" fill="#8B7E5C"/>
+        <!-- 우도 (동쪽 작은 섬) -->
+        <ellipse cx="256" cy="62" rx="7" ry="4.5" fill="#F1EBDD" stroke="#D8CFB8" stroke-width="1"/>
+        <!-- 이동 동선 -->
+        <path d="M52,46 C90,34 140,40 200,44 C216,50 226,58 234,68 C210,72 160,70 116,66 C98,60 78,52 52,46"
+              fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-dasharray="3 5" opacity="0.75"/>
+        <!-- 마커: 이호테우 (제주시, 북부) -->
+        <circle cx="52" cy="46" r="6" fill="var(--orange)" stroke="#fff" stroke-width="2"/>
+        <!-- 마커: 휘닉스 아일랜드 (서귀포 성산읍, 섭지코지 인근, 동부) -->
+        <circle cx="234" cy="68" r="6" fill="var(--mint)" stroke="#fff" stroke-width="2"/>
+        <!-- 마커: 엠버 퓨어힐 (노형동, 1100도로, 한라산 서쪽 중산간) -->
+        <circle cx="112" cy="64" r="6" fill="var(--navy)" stroke="#fff" stroke-width="2"/>
+        <text x="52" y="34" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink)">1박</text>
+        <text x="234" y="56" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink)">2–4박</text>
+        <text x="112" y="52" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="var(--ink)">5–6박</text>
+      </svg>
+      <div class="map-legend">
+        <div class="legend-item"><span class="dot" style="background:var(--orange)"></span>이호테우 (제주시) — 1박</div>
+        <div class="legend-item"><span class="dot" style="background:var(--mint)"></span>휘닉스 아일랜드 (서귀포 성산읍, 섭지코지 인근) — 2–4박</div>
+        <div class="legend-item"><span class="dot" style="background:var(--navy)"></span>엠버 퓨어힐 (제주시 노형동, 1100도로 중산간) — 5–6박</div>
+      </div>
+    </div>
+    <div class="note">※ 지도는 권역 간 이동 흐름을 보여주는 개략도이며, 정확한 위치·축척은 아닙니다.</div>
+  </div>
+
+  <!-- 렌터카 -->
+  <div class="section" style="border-bottom:none;">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <span class="section-title">렌터카</span>
+    </div>
+
+    <div class="car-card">
+      <div class="car-left">
+        <div class="car-icon">7인승</div>
+        <div>
+          <div class="car-model">KIA 카니발</div>
+          <div class="car-sub">7인승 · 가족용</div>
+        </div>
+      </div>
+      <div class="car-period">
+        <span class="label">이용 기간 (항공 일정 기준 추정)</span>
+        10.28(수) – 11.3(화)
+      </div>
+    </div>
+    <div class="note">※ 렌터카 업체명·픽업 장소·정확한 예약 기간은 아직 확인되지 않아 항공 일정을 기준으로 표시했습니다. 확정되면 업데이트해 주세요.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
