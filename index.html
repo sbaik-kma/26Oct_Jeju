@@ -69,6 +69,50 @@
   .car-period{ font-family:'IBM Plex Mono', monospace; font-size:14px; text-align:right; color:var(--ink); }
   .car-period .label{ display:block; font-size:11px; color:var(--grey); letter-spacing:0.06em; margin-bottom:4px; }
   .note{ margin-top:14px; font-size:12px; color:var(--grey); }
+  .spot-group{ margin-bottom:28px; }
+  .spot-group:last-child{ margin-bottom:0; }
+  .spot-group-title{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    color:var(--orange);
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  .spot-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 20px;
+  }
+  .spot-chip{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+  }
+  .spot-chip h3{
+    font-family:'Noto Serif KR', serif;
+    font-size:15px;
+    font-weight:700;
+  }
+  .spot-chip a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--navy);
+    text-decoration:none;
+    white-space:nowrap;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:1px;
+    flex-shrink:0;
+  }
+  .spot-chip a:hover{ color:var(--orange); border-color:var(--orange); }
+  @media (max-width:640px){
+    .spot-grid{ grid-template-columns:1fr; }
+  }
   @media (max-width:640px){
     .pass-row{ grid-template-columns:1fr; }
     .stay{ grid-template-columns:56px 64px 1fr; gap:14px; }
@@ -166,7 +210,7 @@
     </div>
   </div>
 
-  <div class="section" style="border-bottom:none;">
+  <div class="section">
     <div class="section-head">
       <span class="section-num">03</span>
       <span class="section-title">렌터카</span>
@@ -180,10 +224,42 @@
         </div>
       </div>
       <div class="car-period">
-        <span class="label">업체</span>
-        패밀리렌트카
-        <span class="label" style="margin-top:10px;">픽업 · 반납</span>
+        <span class="label">픽업 · 반납</span>
         10.28(수) 16:00 – 11.3(화)
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="border-bottom:none;">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <span class="section-title">방문 후보지</span>
+    </div>
+    <div class="spot-group">
+      <div class="spot-group-title">식당 · 카페</div>
+      <div class="spot-grid">
+        <div class="spot-chip"><h3>외도항공식당</h3><a href="https://naver.me/GDa2IsGE" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>잘도식당</h3><a href="https://naver.me/5wWeErTg" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>니모메 (카페)</h3><a href="https://naver.me/FHlgHWPc" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>공천포식당</h3><a href="https://naver.me/xwmqSORZ" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>주어코지국수창고</h3><a href="https://naver.me/x5GreJ5k" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>종달수다뜰</h3><a href="https://naver.me/xgNSESlD" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>오멘 (카페)</h3><a href="https://naver.me/xa5RrKbu" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>다가미 (김밥)</h3><a href="https://naver.me/FhUL2eB5" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>수눌음</h3><a href="https://naver.me/G9r5APjP" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+      </div>
+    </div>
+    <div class="spot-group">
+      <div class="spot-group-title">가볼만한 곳</div>
+      <div class="spot-grid">
+        <div class="spot-chip"><h3>빛의 벙커</h3><a href="https://naver.me/xcnaMIV3" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>제주피싱테마파크</h3><a href="https://naver.me/xMjKrgLF" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>용머리해안</h3><a href="https://naver.me/55rm7lSA" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>만장굴</h3><a href="https://naver.me/GB3gxXCo" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>성산일출봉</h3><a href="https://naver.me/xa5Rn5U3" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>동문재래시장</h3><a href="https://naver.me/xeAfYFPG" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>제주 곶자왈도립공원</h3><a href="https://naver.me/xRhEQ3TG" target="_blank" rel="noopener">네이버맵 ↗</a></div>
+        <div class="spot-chip"><h3>에코랜드 테마파크</h3><a href="https://naver.me/GMmgqDjq" target="_blank" rel="noopener">네이버맵 ↗</a></div>
       </div>
     </div>
   </div>
